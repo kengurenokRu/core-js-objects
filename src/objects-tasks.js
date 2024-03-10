@@ -20,7 +20,7 @@
 function shallowCopy(obj) {
   const objCopy = {};
   Object.assign(obj, objCopy);
-  return objCopy;
+  return obj;
 }
 
 /**
@@ -51,8 +51,13 @@ function mergeObjects(/* objects */) {
  *    removeProperties({name: 'John', age: 30, city: 'New York'}, 'age') => {name: 'John', city: 'New York'}
  *
  */
-function removeProperties(/* obj, keys */) {
-  throw new Error('Not implemented');
+function removeProperties(obj, keys) {
+  const objTemp = {};
+  Object.assign(objTemp, obj);
+  keys.forEach((element) => {
+    delete objTemp[element];
+  });
+  return objTemp;
 }
 
 /**
@@ -151,8 +156,18 @@ function sellTickets(/* queue */) {
  *    console.log(r.height);      // => 20
  *    console.log(r.getArea());   // => 200
  */
-function Rectangle(/* width, height */) {
-  throw new Error('Not implemented');
+function Rectangle(width, height) {
+  class RectangleClass {
+    constructor(height_, width_) {
+      this.height = width_;
+      this.height = height_;
+    }
+
+    getArea() {
+      return this.a * this.b;
+    }
+  }
+  return new RectangleClass(width, height);
 }
 
 /**
