@@ -36,7 +36,6 @@ function shallowCopy(obj) {
  */
 function mergeObjects(objects) {
   let newObj = [];
-  console.log(Object.entries(objects));
   for (let i = 0; i < objects.length; i += 1) {
     newObj = newObj.concat(Object.keys(objects[i]));
   }
